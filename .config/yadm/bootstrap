@@ -1,0 +1,40 @@
+#!/bin/bash
+
+[[ ! -f $HOME/.ssh/id_rsa ]] && echo 'note: id_rsa is not found, you may want to copy it manually later for auto-ssh-agent.'
+
+echo '=> setting up sysroot...'
+
+(mkpasswd > /etc/passwd && echo 'created /etc/passwd') || echo 'failed to setup /etc/passwd'
+(mkgroup > /etc/group && echo 'created /etc/group') || echo 'failed to setup /etc/group'
+mkdir -v -p /var/empty
+
+echo '=> setting up out-side-of-tree cfg files...'
+
+mkdir -p /etc/setup
+cp -afv $HOME/.cache/__yadm_bootstrap_personal/setup.rc /etc/setup
+
+echo '=> installing oh-my-zsh...'
+
+echo -n '!! please quit the shell, once it is installed. press any key to continue? '
+
+read
+
+bash -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+
+echo '=> installing zsh plugins and themes...'
+
+git clone --depth=1 --no-tags --single-branch https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
+git clone --depth=1 --no-tags --single-branch https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone --depth=1 --no-tags --single-branch https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+
+echo '=> overriding zsh config...'
+
+cp -afv $HOME/.cache/__yadm_bootstrap_personal/.zshrc ~
+
+echo '=> switching default shell to zsh...'
+
+sed -iE "/^$USER:/ s|/bin/bash|/bin/zsh|g" /etc/passwd
+
+echo '=> Done!'
+
+echo 'note: restart the current shell (and other Cygwin proc) to apply the changes.'

@@ -10,8 +10,26 @@ mkdir -v -p /var/empty
 
 echo '=> setting up out-side-of-tree cfg files...'
 
-mkdir -p /etc/setup
-cp -afv $HOME/.cache/__yadm_bootstrap_personal/setup.rc /etc/setup
+mkdir -p /etc/pacman.d/
+cp -afv $HOME/.cache/__yadm_bootstrap_personal/pacman.d/mirrorlist.* /etc/pacman.d/
+
+cat >> /etc/pacman.conf << EOF
+
+# the followings are added by yadm
+
+[git-for-windows]
+Server = https://wingit.blob.core.windows.net/x86-64
+
+[git-for-windows-mingw32]
+Server = https://wingit.blob.core.windows.net/i686
+
+# end of yadm modifications
+
+EOF
+
+curl -L https://ghproxy.com/https://raw.githubusercontent.com/git-for-windows/build-extra/HEAD/git-for-windows-keyring/git-for-windows.gpg | pacman-key --add -
+pacman-key --lsign-key E8325679DFFF09668AD8D7B67115A57376871B1C
+pacman-key --lsign-key 3B6D86A1BA7701CD0F23AED888138B9E1A9F3986
 
 echo '=> installing oh-my-zsh...'
 

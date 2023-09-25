@@ -1,0 +1,85 @@
+#!/usr/bin/env python
+"""
+shitty timestamp calculator
+"""
+
+
+from typing import TypeVar
+
+
+_TimeStamp = TypeVar('_TimeStamp', bound='TimeStamp')
+
+
+class TimeStamp:
+	def __init__(self, hour: int, minute: int, second: int, millisecond: int):
+		if hour < 0 or minute < 0 or second < 0 or millisecond < 0:
+			raise ValueError('invalid field')
+		if minute > 59 or second > 59 or millisecond > 999:
+			raise ValueError('invalid range')
+		self.h = hour
+		self.m = minute
+		self.s = second
+		self.ms = millisecond
+
+	def __str__(self):
+		h = str(self.h)
+		m = str(self.m).rjust(2, '0')
+		s = str(self.s).rjust(2, '0')
+		ms = str(self.ms).rjust(3, '0')
+		return f'{h}:{m}:{s}.{ms}'
+
+	def __repr__(self):
+		return f'TimeStamp<{str(self)}>'
+
+	@classmethod
+	def from_str(cls, s: str) -> _TimeStamp:
+		fields = s.strip().split(':')
+		if len(fields) != 3:
+			raise ValueError('invalid string')
+		h_str, m_str, secs_str = fields
+		h = int(h_str)
+		m = int(m_str)
+		secs_fields = secs_str.split('.')
+		if len(secs_fields) != 2:
+			raise ValueError('invalid seconds')
+		s_str, ms_str = secs_fields
+		s = int(s_str)
+		ms = int(ms_str)
+		return cls(h, m, s, ms)
+
+	def to_ms(self) -> int:
+		ms = self.ms
+		s = self.s
+		m = self.m
+		h = self.h
+		# calc
+		m += h * 60
+		s += m * 60
+		ms += s * 1000
+		return ms
+
+	@classmethod
+	def from_ms(cls, t: int) -> _TimeStamp:
+		ms = t % 1000
+		tmp_s = t // 1000
+		s = tmp_s % 60
+		tmp_m = tmp_s // 60
+		m = tmp_m % 60
+		h = tmp_m // 60
+		return cls(h, m, s, ms)
+
+	def __sub__(self, other: _TimeStamp) -> _TimeStamp:
+		ms = self.to_ms()
+		other_ms = other.to_ms()
+		return self.from_ms(ms - other_ms)
+
+	def __add__(self, other: _TimeStamp) -> _TimeStamp:
+		ms = self.to_ms()
+		other_ms = other.to_ms()
+		return self.from_ms(ms + other_ms)
+
+
+if __name__ == '__main__':
+	start = TimeStamp.from_str(input('start: '))
+	end = TimeStamp.from_str(input('  end: '))
+	print(' time:', end - start)

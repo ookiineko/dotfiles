@@ -1,0 +1,27 @@
+#!/bin/bash
+
+[[ ! -f $HOME/.ssh/id_rsa ]] && echo '=> note: id_rsa is not found, you may want to copy it manually later for auto-ssh-agent.'
+
+echo '=> please make sure the following packages are installed: '
+echo '\tcoreutils, findutils, file, util-linux, psmicc, procps, openssh-client, zsh, nano, curl, wget, openbsd-netcat, tzcode zsh-completions zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting zsh-theme-powerlevel10k tar xz unzip zip zstd texinfo cpio'
+
+if [ "$OSTYPE" = "msys" ]; then
+	echo 'mingw-w64-x86_64-{tzdata,kate,okular,breeze{,-icons}-qt5}'
+fi
+
+if [ "$OSTYPE" = "msys" -o "$OSTYPE" = "cygwin" ]; then
+	echo '=> setting up optional sysroot...'
+
+	(mkpasswd > /etc/passwd && echo 'created /etc/passwd') || echo 'failed to setup /etc/passwd'
+	(mkgroup > /etc/group && echo 'created /etc/group') || echo 'failed to setup /etc/group'
+	mkdir -v -p /var/empty
+
+	echo '=> switching default shell to zsh...'
+	sed -iE "/^$USER:/ s|/bin/bash|/bin/zsh|g" /etc/passwd
+
+	echo '=> note: remember to tweak hardcode under: ~/.bin/msys2_hack'
+
+	echo '=> note: please create link for ~/.config/mpv/mpv.conf under %APPDATA%/mpv'
+fi
+
+echo '=> Done!'

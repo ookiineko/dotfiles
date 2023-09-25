@@ -1,0 +1,121 @@
+#!/usr/bin/env python
+"""
+file renaming tool
+"""
+
+from os import rename
+from sys import exit as die
+from platform import system
+
+
+if system() == 'Windows':
+        EX_OK = 0
+        EX_NOINPUT = 66
+        EX_SOFTWARE = 70
+        EX_DATAERR = 65
+else:
+        from os import EX_OK
+        from os import EX_NOINPUT
+        from os import EX_SOFTWARE
+        from os import EX_DATAERR
+
+
+from os.path import exists
+from os import chdir
+from shutil import copy2
+from argparse import ArgumentParser, Namespace
+from typing import List
+from typing import Optional
+from re import compile as re_comp
+
+
+def _find(srcs: List[str], pat: str) -> Optional[str]:
+	comp_pat = re_comp(pat)
+	for src in srcs:
+		if comp_pat.match(src):
+			return src
+
+
+def _rename(srcs: List[str], src_temp: str, dest_temp: str, src_pad: str, src_pad_width: int, dest_pad: str, dest_pad_width: int, count: int, start: int, dry_run: bool, keep: bool):
+	for i in range(count):
+		ep_name = str(i + start)
+		src_ep_name = ep_name.rjust(src_pad_width, src_pad)
+		dest_ep_name = ep_name.rjust(dest_pad_width, dest_pad)
+		src_pat = src_temp % src_ep_name
+		dest_name = dest_temp % dest_ep_name
+		src_name = _find(srcs, src_pat)
+		if src_name is None:
+			print('cannot match ep %s' % ep_name)
+			die(EX_DATAERR)
+		else:
+			if exists(src_name):
+				if exists(dest_name):
+					print('\'%s\' is already there', dest_name)
+					die(EX_SOFTWARE)
+				else:
+					print('handle ep %s' % ep_name)
+					if not dry_run:
+						if keep:
+							copy2(src_name, dest_name)
+						else:
+							rename(src_name, dest_name)
+			else:
+				print('\'%s\' does not exist' % src_name)
+				die(EX_NOINPUT)
+
+def main(args: Namespace):
+	src_pad = args.src_pad
+	src_pad_width = args.src_pad_width
+	dest_pad = args.dest_pad
+	dest_pad_width = args.dest_pad_width
+	if src_pad_width < 0 or dest_pad_width < 0:
+		print('negative pad width, what??')
+		die(EX_DATAERR)
+	count = args.count
+	if count < 0:
+		print('negative count, what do you mean??')
+		die(EX_DATAERR)
+	work_dir = args.work_dir.strip()
+	if work_dir and exists(work_dir):
+		chdir(work_dir)
+	else:
+		print('working directory \'%s\' cannot be found', work_dir)
+		die(EX_NOINPUT)
+	start = args.start
+	if start < 0:
+		print('negative start, what do you mean by that??')
+		die(EX_DATAERR)
+	dry_run = getattr(args, 'dry_run')
+	if dry_run:
+		print('dry run enabled')
+	keep = args.keep
+	srcs = args.src
+	src_temp = args.src_template.strip()
+	if not src_temp or src_temp.count('%s') != 1:
+		print('bad source template')
+		die(EX_DATAERR)
+	dest_temp = args.dest_template.strip()
+	if not dest_temp or dest_temp.count('%s') != 1:
+		print('bad destination template')
+		die(EX_DATAERR)
+	print('start')
+	_rename(srcs, src_temp, dest_temp, src_pad, src_pad_width, dest_pad, dest_pad_width, count, start, dry_run, keep)
+	print('Done!')
+	die(EX_OK)
+
+if __name__ == '__main__':
+	parser = ArgumentParser(description='shitty tool for renaming files', epilog='powered by Python')
+	parser.add_argument('-p', '--src-pad', type=str, help='source pad charcter (defaults to \'0\')', default='0')
+	parser.add_argument('-P', '--src-pad-width', type=int, help='source pad width (defaults to 2)', default=2)
+	parser.add_argument('-t', '--dest-pad', type=str, help='destination pad charcter (defaults to \'0\')', default='0')
+	parser.add_argument('-T', '--dest-pad-width', type=int, help='destination pad width (defaults to 2)', default=2)
+	parser.add_argument('-c', '--count', type=int, help='count', required=True)
+	parser.add_argument('-C', '--work-dir', type=str, help='working directory (defaults to \'.\')', default='.')
+	parser.add_argument('-s', '--start', type=int, help='start value (defaults to 0)', default=1)
+	parser.add_argument('-d', '--dry-run', action='store_true', help='dry run')
+	parser.add_argument('-k', '--keep', action='store_true', help='keep the original file')
+	parser.add_argument('src_template', type=str, help='source template (must contain a \'%%s\' for ep placeholder)')
+	parser.add_argument('dest_template', type=str, help='destination template (must contain a \'%%s\' for ep placeholder)')
+	parser.add_argument('src', type=str, nargs='+', help='source files')
+	args = parser.parse_args()
+	main(args)

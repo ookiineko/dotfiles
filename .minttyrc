@@ -1,0 +1,17 @@
+Term=xterm-256color
+ThemeFile=dracula
+CursorColour=255,0,255
+CursorType=underscore
+Transparency=low
+Font=MesloLGS NF
+FontHeight=12
+FontWeight=400
+Locale=C
+Charset=UTF-8
+ClipShortcuts=no
+CtrlShiftShortcuts=yes
+ClearSelectionOnInput=no
+CopyOnSelect=no
+CopyTab=yes
+CopyAsRTF=no
+TrimSelection=no

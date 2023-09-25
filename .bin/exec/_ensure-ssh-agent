@@ -1,0 +1,53 @@
+#!/bin/bash
+
+force=0
+kill=0
+
+if [ -f ~/.cache/auto-ssh-agent.save ]; then
+    echo "Sourcing ssh-agent profile..."
+    . ~/.cache/auto-ssh-agent.save
+fi
+
+if [ "$#" -eq 1 ]; then
+    if [ "$1" = "-f" -o "$1" = "--force" ]; then
+        force=1
+    elif [ "$1" = "-k" -o "$1" = "--kill" ]; then
+        kill=1
+    else
+        echo "ensure-ssh-agent: Unknown arg: '$1'"
+        return 1
+    fi
+elif [ "$#" -ne 0 ]; then
+    echo "ensure-ssh-agent: Too many args"
+    return 1
+fi
+
+ps -p $SSH_AGENT_PID 2>/dev/null >/dev/null
+
+if [ "$?" -ne 0 -o ! -S "$SSH_AUTH_SOCK" ]; then
+    echo "ssh-agent profile not found or invalid"
+    if [ "$kill" -eq 1 ]; then
+        return 0
+    fi
+    if [ -f $HOME/.ssh/id_rsa -o "$force" -eq 1 ]; then
+        echo "starting a new ssh-agent..."
+        rm -rf ~/.cache/auto-ssh-agent.save
+        eval `ssh-agent -s`
+        mkdir -p  ~/.cache
+        echo '#!/bin/bash' > ~/.cache/auto-ssh-agent.save
+        echo "export SSH_AGENT_PID=${SSH_AGENT_PID}" >> ~/.cache/auto-ssh-agent.save
+        echo "export SSH_AUTH_SOCK=${SSH_AUTH_SOCK}" >> ~/.cache/auto-ssh-agent.save
+        echo "echo 'Injected ssh-agent profile.'" >> ~/.cache/auto-ssh-agent.save
+        chmod +x ~/.cache/auto-ssh-agent.save
+        source ~/.cache/auto-ssh-agent.save
+        # ~/.bin/auto-ssh-agent/add-ssh-privkey  # Never save plain text passwd on any server
+        ssh-add $HOME/.ssh/id_rsa  # Manually add
+    else
+        echo "ensure-ssh-agent: No id_rsa, Stop."
+        return 1
+    fi
+elif [ "$kill" -eq 1 ]; then
+    kill $SSH_AGENT_PID
+    echo "Killed ssh-agent"
+    return 0
+fi

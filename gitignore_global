@@ -1,0 +1,9 @@
+# macOS
+**/.**DS_Store
+# IDE
+**/.idea*/
+**/.vscode/
+# Python
+**/__pycache__/
+# Cygwin
+**/*.exe.stackdump

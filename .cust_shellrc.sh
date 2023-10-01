@@ -90,7 +90,7 @@ export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
 # ==> paths
 #
 
-export PATH=$HOME/.bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/.cargo/bin:$HOME/.bin:$HOME/.local/bin:$PATH
 
 if [ "$OSTYPE" = "msys" -o "$OSTYPE" = "cygwin" ]; then
 	export PATH=$HOME/.bin/msys2_hack:$PATH

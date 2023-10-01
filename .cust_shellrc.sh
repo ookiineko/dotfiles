@@ -80,6 +80,13 @@ export ftp_proxy=http://127.0.0.1:56252
 export no_proxy='localhost,127.0.0.1'
 
 #
+# ==> mirrors
+#
+
+export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
+export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
+
+#
 # ==> paths
 #
 
@@ -88,8 +95,8 @@ export PATH=$HOME/.bin:$HOME/.local/bin:$PATH
 if [ "$OSTYPE" = "msys" -o "$OSTYPE" = "cygwin" ]; then
 	export PATH=$HOME/.bin/msys2_hack:$PATH
 
-	export CARGO_HOME="$(cygpath -m ${HOME})"
-	export RUSTUP_HOME="$(cygpath -m ${HOME})"
+	export CARGO_HOME="$(cygpath -w ${HOME})\\.cargo"
+	export RUSTUP_HOME="$(cygpath -w ${HOME})\\.rustup"
 fi
 
 #

@@ -83,7 +83,7 @@ export no_proxy='localhost,127.0.0.1'
 # ==> paths
 #
 
-export PATH=$HOME/.bin:$PATH
+export PATH=$HOME/.bin:$HOME/.local/bin:$PATH
 
 if [ "$OSTYPE" = "msys" -o "$OSTYPE" = "cygwin" ]; then
 	export PATH=$HOME/.bin/msys2_hack:$PATH

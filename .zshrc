@@ -2,7 +2,7 @@
 # ==> generic profiles
 #
 
-source ~/cust_shellrc.sh
+source ~/.cust_shellrc.sh
 
 #
 # ==> history

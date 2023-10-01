@@ -6,7 +6,7 @@
 	email = chiisaineko@protonmail.com
 	name = Ookiineko
 [core]
-	excludesfile = ~/gitignore_global
+	excludesfile = ~/.gitignore_global
 	symlinks = true
 	editor = nano
 [color]

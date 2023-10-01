@@ -29,10 +29,11 @@
 	insteadOf = git@github.com:LineageOS/
 	insteadOf = git://github.com/LineageOS/
 	insteadOf = ssh://git@github.com/LineageOS/
-# GitHub SSH
-[url "git@github.com:"]
+# GitHub SSH mirror - China
+[url "git@git.zhlh6.cn:"]
 	insteadOf = http://github.com/
 	insteadOf = https://github.com/
+	insteadOf = git@github.com:
 	insteadOf = git://github.com/
 	insteadOf = ssh://git@github.com/
 # AOSP Git mirror - by TUNA

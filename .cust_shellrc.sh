@@ -87,6 +87,9 @@ export PATH=$HOME/.bin:$HOME/.local/bin:$PATH
 
 if [ "$OSTYPE" = "msys" -o "$OSTYPE" = "cygwin" ]; then
 	export PATH=$HOME/.bin/msys2_hack:$PATH
+
+	export CARGO_HOME="$(cygpath -m ${HOME})"
+	export RUSTUP_HOME="$(cygpath -m ${HOME})"
 fi
 
 #

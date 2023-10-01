@@ -57,7 +57,7 @@ export GPG_TTY=$(tty)
 
 # Msys2/Cygwin - symlink
 if [ "$OSTYPE" = "msys" ]; then
-	export MSYS=winsymlinks:nativestrict
+	export MSYS=winsymlinks:native
 elif [ "$OSTYPE" = "cygwin" ]; then
 	export CYGWIN=winsymlinks:sys
 fi

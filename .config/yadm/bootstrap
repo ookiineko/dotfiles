@@ -24,4 +24,6 @@ if [ "$OSTYPE" = "msys" -o "$OSTYPE" = "cygwin" ]; then
 	echo '=> note: please create link for ~/.config/mpv/mpv.conf under %APPDATA%/mpv'
 fi
 
+[[ ! -f $HOME/.config/weechat/sec.conf ]] && echo '=> note: sec.conf is not found, you may want to copy it manually later for weechat.'
+
 echo '=> Done!'

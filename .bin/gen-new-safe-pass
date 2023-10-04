@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+import secrets
+import string
+
+
+CHARS = string.ascii_letters + string.digits + string.punctuation
+LEN = 40
+
+print(''.join([secrets.choice(CHARS) for _ in range(LEN)]))

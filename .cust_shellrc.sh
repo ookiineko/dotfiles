@@ -1,4 +1,10 @@
 #
+# ==> hardcodes
+#
+
+source ~/.cust_hardcodes.d/shellrc
+
+#
 # ==> colored output
 #
 
@@ -74,9 +80,9 @@ function watch_something() {
 # ==> proxies
 #
 
-export http_proxy=http://127.0.0.1:56252
-export https_proxy=http://127.0.0.1:56252
-export ftp_proxy=http://127.0.0.1:56252
+export http_proxy=http://127.0.0.1:${__dotfiles_proxy_port}
+export https_proxy=http://127.0.0.1:${__dotfiles_proxy_port}
+export ftp_proxy=http://127.0.0.1:${__dotfiles_proxy_port}
 export no_proxy='localhost,127.0.0.1'
 
 #

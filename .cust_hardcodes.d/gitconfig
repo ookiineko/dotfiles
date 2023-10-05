@@ -1,0 +1,10 @@
+#
+# ==> proxies
+#
+
+[http]
+	proxy = socks5://127.0.0.1:56252
+[https]
+	proxy = socks5://127.0.0.1:56252
+[git]
+	proxy = socks5://127.0.0.1:56252

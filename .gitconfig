@@ -82,3 +82,10 @@
 	insteadOf = git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-next
 	insteadOf = ssh://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-next
 	insteadOf = git@git.kernel.org:pub/scm/linux/kernel/git/stable/linux-next
+
+#
+# ==> hardcodes
+#
+
+[include]
+	path = ~/.cust_hardcodes.d/gitconfig

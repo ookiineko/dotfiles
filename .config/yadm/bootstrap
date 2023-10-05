@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[[ ! -f $HOME/.ssh/id_rsa ]] && echo '=> note: id_rsa is not found, you may want to copy it manually later for auto-ssh-agent.'
+[[ ! -f $HOME/.ssh/id_ed25519 ]] && echo '=> note: id_ed25519 is not found, you may want to copy it manually later for auto-ssh-agent.'
 
 echo '=> please make sure the following packages are installed: '
 echo '\tcoreutils, findutils, file, util-linux, psmicc, procps, openssh-client, zsh, nano, curl, wget, openbsd-netcat, tzcode zsh-completions zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting zsh-theme-powerlevel10k tar xz unzip zip zstd texinfo cpio'

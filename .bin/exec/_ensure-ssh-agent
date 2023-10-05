@@ -29,7 +29,7 @@ if [ "$?" -ne 0 -o ! -S "$SSH_AUTH_SOCK" ]; then
     if [ "$kill" -eq 1 ]; then
         return 0
     fi
-    if [ -f $HOME/.ssh/id_rsa -o "$force" -eq 1 ]; then
+    if [ -f $HOME/.ssh/id_ed25519 -o "$force" -eq 1 ]; then
         echo "starting a new ssh-agent..."
         rm -rf ~/.cache/auto-ssh-agent.save
         eval `ssh-agent -s`
@@ -41,9 +41,9 @@ if [ "$?" -ne 0 -o ! -S "$SSH_AUTH_SOCK" ]; then
         chmod +x ~/.cache/auto-ssh-agent.save
         source ~/.cache/auto-ssh-agent.save
         # ~/.bin/auto-ssh-agent/add-ssh-privkey  # Never save plain text passwd on any server
-        ssh-add $HOME/.ssh/id_rsa  # Manually add
+        ssh-add $HOME/.ssh/id_ed25519  # Manually add
     else
-        echo "ensure-ssh-agent: No id_rsa, Stop."
+        echo "ensure-ssh-agent: No id_ed25519, Stop."
         return 1
     fi
 elif [ "$kill" -eq 1 ]; then

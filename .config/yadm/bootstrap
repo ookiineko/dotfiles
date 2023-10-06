@@ -28,4 +28,12 @@ fi
 
 echo '=> note: please tweak the hardcodes in $HOME/.cust_hardcodes.d'
 
+__mpv_conf_path="${HOME}/.cust_dotfiles.d/mpv/${OSTYPE}.conf"
+
+if [ -f "${__mpv_conf_path}" ]; then
+	ln -v -s "${__mpv_conf_path}" "${HOME}/.config/mpv/mpv.conf"
+else
+	echo '=> warning: no mpv.conf available for this platform'
+fi
+
 echo '=> Done!'

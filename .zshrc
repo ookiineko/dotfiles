@@ -2,7 +2,7 @@
 # ==> generic profiles
 #
 
-source ~/.cust_shellrc.sh
+[[ ! -f ~/.cust_shellrc.sh ]] || source ~/.cust_shellrc.sh
 
 #
 # ==> history
@@ -99,16 +99,28 @@ fi
 # ==> plugins
 #
 
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+__zshrc_plugins=(
+	zsh-history-substring-search
+	zsh-syntax-highlighting
+	zsh-autosuggestions
+)
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+__zshrc_ppxf="/usr/share/zsh/plugins"
+
+for __zshrc_pn in "$__zshrc_plugins[@]"; do
+	__zshrc_pd="${__zshrc_ppfx}/${__zshrc_pn}"
+	__zshrc_pp="${__zshrc_pd}/${__zshrc_pn}.zsh"
+
+	[[ ! -f "${__zshrc_pp}" ]] || source "${__zshrc_pp}"
+done
 
 #
 # ==> themes
 #
 
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+__zshrc_theme="/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
+
+[[ ! -f "${__zshrc_theme}" ]] || source "${__zshrc_theme}"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -2,7 +2,7 @@
 # ==> hardcodes
 #
 
-source ~/.cust_hardcodes.d/shellrc
+[[ ! -f ~/.cust_hardcodes.d/shellrc ]] || source ~/.cust_hardcodes.d/shellrc
 
 #
 # ==> colored output
@@ -69,7 +69,7 @@ elif [ "$OSTYPE" = "cygwin" ]; then
 fi
 
 function ensure_ssh_agent() {
-       	source ~/.bin/exec/_ensure-ssh-agent
+	[[ ! -f ~/.bin/exec/_ensure-ssh-agent ]] || source ~/.bin/exec/_ensure-ssh-agent
 }
 
 function watch_something() {
@@ -96,10 +96,15 @@ export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
 # ==> paths
 #
 
-export PATH=$HOME/.cargo/bin:$HOME/.bin:$HOME/.local/bin:$PATH
+[[ ! -d $HOME/.cargo/bin ]] || export PATH=$HOME/.cargo/bin:$PATH
+[[ ! -d $HOME/bin ]] || export PATH=$HOME/bin:$PATH
+[[ ! -d $HOME/.local/bin ]] || export PATH=$HOME/.local/bin:$PATH
 
 if [ "$OSTYPE" = "msys" -o "$OSTYPE" = "cygwin" ]; then
-	export PATH=$HOME/.bin/msys2_hack:$PATH
+	[[ ! -d $HOME/.bin/msys2_hack ]] | export PATH=$HOME/.bin/msys2_hack:$PATH
+
+	# preset path var, so installation can work on the fly
+	[[ -d $HOME/.cargo/bin ]] || export PATH=$HOME/.cargo/bin:$PATH
 
 	export CARGO_HOME="$(cygpath -w ${HOME})\\.cargo"
 	export RUSTUP_HOME="$(cygpath -w ${HOME})\\.rustup"

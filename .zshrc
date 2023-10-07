@@ -105,7 +105,7 @@ __zshrc_plugins=(
 	zsh-autosuggestions
 )
 
-__zshrc_ppxf="/usr/share/zsh/plugins"
+__zshrc_ppfx="/usr/share/zsh/plugins"
 
 for __zshrc_pn in "$__zshrc_plugins[@]"; do
 	__zshrc_pd="${__zshrc_ppfx}/${__zshrc_pn}"

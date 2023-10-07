@@ -116,3 +116,12 @@ fi
 
 export LANG=C.UTF-8
 export LC_CTYPE=C.UTF-8
+
+#
+# ==> system profiles
+#
+
+# recommended for Tilix
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        [[ ! -f /etc/profile.d/vte.sh ]] || source /etc/profile.d/vte.sh
+fi

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-force=0
-kill=0
+__autossh_force=0
+__autossh_kill=0
 
 if [ -f ~/.cache/auto-ssh-agent.save ]; then
     echo "Sourcing ssh-agent profile..."
@@ -10,9 +10,9 @@ fi
 
 if [ "$#" -eq 1 ]; then
     if [ "$1" = "-f" -o "$1" = "--force" ]; then
-        force=1
+        __autossh_force=1
     elif [ "$1" = "-k" -o "$1" = "--kill" ]; then
-        kill=1
+        __autossh_kill=1
     else
         echo "ensure-ssh-agent: Unknown arg: '$1'"
         return 1
@@ -26,10 +26,10 @@ ps -p $SSH_AGENT_PID 2>/dev/null >/dev/null
 
 if [ "$?" -ne 0 -o ! -S "$SSH_AUTH_SOCK" ]; then
     echo "ssh-agent profile not found or invalid"
-    if [ "$kill" -eq 1 ]; then
+    if [ "$__autossh_kill" -eq 1 ]; then
         return 0
     fi
-    if [ -f $HOME/.ssh/id_ed25519 -o "$force" -eq 1 ]; then
+    if [ -f $HOME/.ssh/id_ed25519 -o "$__autossh_force" -eq 1 ]; then
         echo "starting a new ssh-agent..."
         rm -rf ~/.cache/auto-ssh-agent.save
         eval `ssh-agent -s`
@@ -46,7 +46,7 @@ if [ "$?" -ne 0 -o ! -S "$SSH_AUTH_SOCK" ]; then
         echo "ensure-ssh-agent: No id_ed25519, Stop."
         return 1
     fi
-elif [ "$kill" -eq 1 ]; then
+elif [ "$__autossh_kill" -eq 1 ]; then
     kill $SSH_AGENT_PID
     echo "Killed ssh-agent"
     return 0

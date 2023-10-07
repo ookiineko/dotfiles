@@ -9,8 +9,6 @@
 	excludesfile = ~/.gitignore_global
 	symlinks = true
 	editor = nano
-[color]
-	ui = auto
 [branch]
 	autosetuprebase = always
 [protocol "https"]

@@ -97,7 +97,7 @@ export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
 #
 
 [[ ! -d $HOME/.cargo/bin ]] || export PATH=$HOME/.cargo/bin:$PATH
-[[ ! -d $HOME/bin ]] || export PATH=$HOME/bin:$PATH
+[[ ! -d $HOME/.bin ]] || export PATH=$HOME/.bin:$PATH
 [[ ! -d $HOME/.local/bin ]] || export PATH=$HOME/.local/bin:$PATH
 
 if [ "$OSTYPE" = "msys" -o "$OSTYPE" = "cygwin" ]; then

@@ -85,6 +85,12 @@ bindkey '^[[6~' down-line-or-history
 bindkey "^I" complete-word
 
 #
+# ==> misc
+#
+
+setopt interactivecomments
+
+#
 # ==> instant shell
 #
 

@@ -26,14 +26,14 @@ from shutil import copy2
 from argparse import ArgumentParser, Namespace
 from typing import List
 from typing import Optional
-from re import compile as re_comp
+from re import compile as re_comp, Match as RegexMatch
 
 
-def _find(srcs: List[str], pat: str) -> Optional[str]:
+def _find(srcs: List[str], pat: str) -> Optional[RegexMatch]:
 	comp_pat = re_comp(pat)
 	for src in srcs:
-		if comp_pat.match(src):
-			return src
+		if (m := comp_pat.match(src)):
+			return m
 
 
 def _rename(srcs: List[str], src_temp: str, dest_temp: str, src_pad: str, src_pad_width: int, dest_pad: str, dest_pad_width: int, count: int, start: int, dry_run: bool, keep: bool):
@@ -43,18 +43,24 @@ def _rename(srcs: List[str], src_temp: str, dest_temp: str, src_pad: str, src_pa
 		dest_ep_name = ep_name.rjust(dest_pad_width, dest_pad)
 		src_pat = src_temp % src_ep_name
 		dest_name = dest_temp % dest_ep_name
-		src_name = _find(srcs, src_pat)
-		if src_name is None:
+		src_match = _find(srcs, src_pat)
+		if src_match is None:
 			print('cannot match ep %s' % ep_name)
 			die(EX_DATAERR)
 		else:
+			src_name = src_match.string
+			src_groups = src_match.groups()
+			if src_groups:
+				dest_name = dest_name.format(*src_groups)
 			if exists(src_name):
 				if exists(dest_name):
 					print('\'%s\' is already there', dest_name)
 					die(EX_SOFTWARE)
 				else:
 					print('handle ep %s' % ep_name)
-					if not dry_run:
+					if dry_run:
+						print(f'{src_name!r} -> {dest_name!r}')
+					else:
 						if keep:
 							copy2(src_name, dest_name)
 						else:

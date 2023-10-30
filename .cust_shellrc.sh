@@ -69,7 +69,7 @@ elif [ "$OSTYPE" = "cygwin" ]; then
 fi
 
 function ensure_ssh_agent() {
-	[[ ! -f ~/.bin/exec/_ensure-ssh-agent ]] || source ~/.bin/exec/_ensure-ssh-agent
+	[[ ! -f ~/.bin/_ensure-ssh-agent ]] || source ~/.bin/_ensure-ssh-agent
 }
 
 function watch_something() {

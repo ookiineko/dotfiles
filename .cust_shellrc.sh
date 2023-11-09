@@ -80,9 +80,9 @@ function watch_something() {
 # ==> proxies
 #
 
-export http_proxy=http://127.0.0.1:${__dotfiles_proxy_port}
-export https_proxy=http://127.0.0.1:${__dotfiles_proxy_port}
-export ftp_proxy=http://127.0.0.1:${__dotfiles_proxy_port}
+export http_proxy=http://${__dotfiles_proxy_addr}
+export https_proxy=http://${__dotfiles_proxy_addr}
+export ftp_proxy=http://${__dotfiles_proxy_addr}
 export no_proxy='localhost,127.0.0.1'
 
 #

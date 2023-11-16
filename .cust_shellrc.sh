@@ -2,8 +2,6 @@
 # ==> hardcodes
 #
 
-. /etc/environment
-
 [[ ! -f ~/.cust_hardcodes.d/shellrc ]] || source ~/.cust_hardcodes.d/shellrc
 
 #

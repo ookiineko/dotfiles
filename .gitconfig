@@ -30,7 +30,8 @@
 	difftool = true
 
 [alias]
-	difft = difftool
+	diffd = difftool
+	showd = "-c diff.external=difft show --ext-diff"
 
 #
 # ==> hardcodes

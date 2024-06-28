@@ -95,6 +95,9 @@ function git_or_yadm() {
 
 alias git=git_or_yadm
 
+# difftastic
+export DFT_DISPLAY=inline
+
 #
 # ==> proxies
 #

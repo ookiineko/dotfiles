@@ -76,6 +76,20 @@ function watch_something() {
 	watch -c -d -e -n 1 -t -x $*
 }
 
+function git_or_yadm() {
+	local _git_cmd
+
+	if [ "$PWD" = "$HOME" ]; then
+		_git_cmd=yadm
+	else
+		_git_cmd=git
+	fi
+
+	$_git_cmd "$@"
+}
+
+alias git=git_or_yadm
+
 #
 # ==> proxies
 #

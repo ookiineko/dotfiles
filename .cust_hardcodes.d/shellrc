@@ -3,4 +3,4 @@
 __dotfiles_proxy_addr=127.0.0.1:56252
 __zshrc_plugin_prefix=/usr/share/zsh/plugins
 
-. /etc/profile.d/envvars.sh
+[[ -f /etc/profile.d/envvars.sh ]] && . /etc/profile.d/envvars.sh

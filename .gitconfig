@@ -2,9 +2,6 @@
 # ==> Misc
 #
 
-[user]
-	email = chiisaineko@protonmail.com
-	name = Ookiineko
 [core]
 	excludesfile = ~/.gitignore_global
 	symlinks = true
@@ -15,71 +12,6 @@
 	allow = always
 [init]
 	defaultBranch = main
-
-#
-# ==> Mirrors
-#
-
-# LineageOS Git mirror - by TUNA
-[url "https://mirrors.tuna.tsinghua.edu.cn/git/lineageOS/LineageOS/"]
-	insteadOf = http://github.com/LineageOS/
-	insteadOf = https://github.com/LineageOS/
-	insteadOf = git@github.com:LineageOS/
-	insteadOf = git://github.com/LineageOS/
-	insteadOf = ssh://git@github.com/LineageOS/
-# GitHub SSH mirror - China
-[url "git@git.zhlh6.cn:"]
-	insteadOf = http://github.com/
-	insteadOf = https://github.com/
-	insteadOf = git@github.com:
-	insteadOf = git://github.com/
-	insteadOf = ssh://git@github.com/
-# AOSP Git mirror - by TUNA
-[url "https://mirrors.tuna.tsinghua.edu.cn/git/AOSP/"]
-	insteadOf = http://android.googlesource.com/
-	insteadOf = https://android.googlesource.com/
-	insteadOf = git@android.googlesource.com:
-	insteadOf = git://android.googlesource.com/
-	insteadOf = ssh://git@android.googlesource.com/
-# Git-repo mirror - by TUNA
-[url "https://mirrors.tuna.tsinghua.edu.cn/git/git-repo"]
-	insteadOf = http://gerrit.googlesource.com/git-repo
-	insteadOf = https://gerrit.googlesource.com/git-repo
-	insteadOf = git@gerrit.googlesource.com:git-repo
-	insteadOf = git://gerrit.googlesource.com/git-repo
-	insteadOf = ssh://git@gerrit.googlesource.com/git-repo
-# CodeAurora mirror - China
-[url "git://source.codeaurora.cn"]
-	insteadOf = http://source.codeaurora.org
-	insteadOf = http://source.codeaurora.cn
-	insteadOf = git://source.codeaurora.org
-	insteadOf = https://source.codeaurora.org
-	insteadOf = https://source.codeaurora.cn
-[url "git://codeaurora.cn"]
-	insteadOf = http://codeaurora.org
-	insteadOf = http://codeaurora.cn
-	insteadOf = git://codeaurora.org
-	insteadOf = https://codeaurora.org
-	insteadOf = https://codeaurora.cn
-# Linux Git mirror - by TUNA
-[url "https://mirrors.tuna.tsinghua.edu.cn/git/linux-stable"]
-	insteadOf = https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux
-	insteadOf = http://git.kernel.org/pub/scm/linux/kernel/git/stable/linux
-	insteadOf = git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux
-	insteadOf = ssh://git.kernel.org/pub/scm/linux/kernel/git/stable/linux
-	insteadOf = git@git.kernel.org:pub/scm/linux/kernel/git/stable/linux
-[url "https://mirrors.tuna.tsinghua.edu.cn/git/linux"]
-	insteadOf = https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux
-	insteadOf = http://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux
-	insteadOf = git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux
-	insteadOf = ssh://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux
-	insteadOf = git@git.kernel.org:pub/scm/linux/kernel/git/torvalds/linux
-[url "https://mirrors.tuna.tsinghua.edu.cn/git/linux-next"]
-	insteadOf = https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next
-	insteadOf = http://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next
-	insteadOf = git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next
-	insteadOf = ssh://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next
-	insteadOf = git@git.kernel.org:pub/scm/linux/kernel/git/next/linux-next
 
 #
 # ==> hardcodes

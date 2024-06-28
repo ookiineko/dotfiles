@@ -12,13 +12,13 @@ export LESS='-R --use-color -Dd+r$Du+b'
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export MANROFFOPT="-P -c"
 
-alias ls='ls --color'
+alias ls='ls --color=auto'
 
 alias l='ls -lah'
 alias ll='ls -lh'
 alias la='ls -lAh'
 
-alias grep='grep --color'
+alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias pacman='pacman --color=auto'
 

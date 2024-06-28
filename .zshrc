@@ -120,6 +120,16 @@ for __zshrc_pn in "$__zshrc_plugins[@]"; do
 	[[ ! -f "${__zshrc_pp}" ]] || source "${__zshrc_pp}"
 done
 
+__cust_zsh_plugins=(
+	sudo
+)
+
+for __cust_zshpn in "${__cust_zsh_plugins[@]}"; do
+	__cust_zshpp="$HOME/.cust_zsh_plugins.d/${__cust_zshpn}.plugin.zsh"
+
+	[[ ! -f "${__cust_zshpp}" ]] || source "${__cust_zshpp}"
+done
+
 #
 # ==> themes
 #

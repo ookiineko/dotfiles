@@ -63,23 +63,23 @@
 	insteadOf = https://codeaurora.cn
 # Linux Git mirror - by TUNA
 [url "https://mirrors.tuna.tsinghua.edu.cn/git/linux-stable"]
-	insteadOf = https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable
-	insteadOf = http://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable
-	insteadOf = git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable
-	insteadOf = ssh://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable
-	insteadOf = git@git.kernel.org:pub/scm/linux/kernel/git/stable/linux-stable
-[url "https://mirrors.tuna.tsinghua.edu.cn/git/linux"]
 	insteadOf = https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux
 	insteadOf = http://git.kernel.org/pub/scm/linux/kernel/git/stable/linux
 	insteadOf = git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux
 	insteadOf = ssh://git.kernel.org/pub/scm/linux/kernel/git/stable/linux
 	insteadOf = git@git.kernel.org:pub/scm/linux/kernel/git/stable/linux
+[url "https://mirrors.tuna.tsinghua.edu.cn/git/linux"]
+	insteadOf = https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux
+	insteadOf = http://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux
+	insteadOf = git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux
+	insteadOf = ssh://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux
+	insteadOf = git@git.kernel.org:pub/scm/linux/kernel/git/torvalds/linux
 [url "https://mirrors.tuna.tsinghua.edu.cn/git/linux-next"]
-	insteadOf = https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-next
-	insteadOf = http://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-next
-	insteadOf = git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-next
-	insteadOf = ssh://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-next
-	insteadOf = git@git.kernel.org:pub/scm/linux/kernel/git/stable/linux-next
+	insteadOf = https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next
+	insteadOf = http://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next
+	insteadOf = git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next
+	insteadOf = ssh://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next
+	insteadOf = git@git.kernel.org:pub/scm/linux/kernel/git/next/linux-next
 
 #
 # ==> hardcodes

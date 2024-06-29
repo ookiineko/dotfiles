@@ -20,4 +20,4 @@ yadm bootstrap
 
 * archlinux x86_64
 
-(optionally tested on Termux, Ubuntu, [cygwin/msys2](../cygwin) and [macos](../macos), [hardcodes](.cust_hardcodes.d) changes and manually installation of some pkgs required)
+(optionally tested on [Termux](../../tree/termux), [Ubuntu](../../tree/ubuntu), [cygwin/msys2](../../tree/cygmsys) and [macos](../../tree/macos), [hardcodes](.cust_hardcodes.d) changes and manually installation of some pkgs required)

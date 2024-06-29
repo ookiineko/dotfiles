@@ -134,8 +134,6 @@ done
 # ==> themes
 #
 
-__zshrc_theme="/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
-
 [[ ! -f "${__zshrc_theme}" ]] || source "${__zshrc_theme}"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

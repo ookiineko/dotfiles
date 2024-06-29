@@ -1,5 +1,4 @@
-include /usr/share/nano/*.nanorc
-include /usr/share/nano/extra/*.nanorc
+include ~/.cust_hardcodes.d/nanorc
 
 # HACK: pasting on Linux with Tilix
 unbind ^J main

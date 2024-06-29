@@ -1,0 +1,14 @@
+#!/usr/bin/zsh
+
+__zshrc_plugin_prefix=/usr/share/zsh/plugins
+__zshrc_theme=/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
+__zshrc_plugins=(
+        zsh-history-substring-search
+        zsh-syntax-highlighting
+        zsh-autosuggestions
+)
+
+__cust_zsh_plugins=(
+        sudo
+)

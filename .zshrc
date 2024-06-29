@@ -4,6 +4,8 @@
 
 [[ ! -f ~/.cust_shellrc.sh ]] || source ~/.cust_shellrc.sh
 
+[[ ! -f ~/.cust_hardcodes.d/zshrc ]] || . ~/.cust_hardcodes.d/zshrc
+
 #
 # ==> history
 #
@@ -105,12 +107,6 @@ fi
 # ==> plugins
 #
 
-__zshrc_plugins=(
-	zsh-history-substring-search
-	zsh-syntax-highlighting
-	zsh-autosuggestions
-)
-
 __zshrc_ppfx="${__zshrc_plugin_prefix}"
 
 for __zshrc_pn in "$__zshrc_plugins[@]"; do
@@ -119,10 +115,6 @@ for __zshrc_pn in "$__zshrc_plugins[@]"; do
 
 	[[ ! -f "${__zshrc_pp}" ]] || source "${__zshrc_pp}"
 done
-
-__cust_zsh_plugins=(
-	sudo
-)
 
 for __cust_zshpn in "${__cust_zsh_plugins[@]}"; do
 	__cust_zshpp="$HOME/.cust_zsh_plugins.d/${__cust_zshpn}.plugin.zsh"

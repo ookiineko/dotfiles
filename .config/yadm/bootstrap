@@ -18,22 +18,10 @@ if [ "$OSTYPE" = "msys" -o "$OSTYPE" = "cygwin" ]; then
 
 	echo '=> switching default shell to zsh...'
 	sed -iE "/^$USER:/ s|/bin/bash|/bin/zsh|g" /etc/passwd
-
-	echo '=> note: remember to tweak hardcode under: ~/.bin/msys2_hack'
-
-	echo '=> note: please create link for ~/.config/mpv/mpv.conf under %APPDATA%/mpv'
 fi
 
 [[ ! -f $HOME/.config/weechat/sec.conf ]] && echo '=> note: sec.conf is not found, you may want to copy it manually later for weechat.'
 
 echo '=> note: please tweak the hardcodes in $HOME/.cust_hardcodes.d'
-
-__mpv_conf_path="${HOME}/.cust_dotfiles.d/mpv/${OSTYPE}.conf"
-
-if [ -f "${__mpv_conf_path}" ]; then
-	ln -v -s -f "${__mpv_conf_path}" "${HOME}/.config/mpv/mpv.conf"
-else
-	echo '=> warning: no mpv.conf available for this platform'
-fi
 
 echo '=> Done!'

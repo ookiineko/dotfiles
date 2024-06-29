@@ -101,13 +101,6 @@ export ftp_proxy=http://${__dotfiles_proxy_addr}
 export no_proxy='localhost,127.0.0.1'
 
 #
-# ==> mirrors
-#
-
-export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
-export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
-
-#
 # ==> paths
 #
 

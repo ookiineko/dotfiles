@@ -55,9 +55,6 @@ alias ..........='cd ../../../../../../../../..'
 # ==> misc
 #
 
-# interactive
-export EDITOR=nano
-
 # gpg - prefer terminal auth
 export GPG_TTY=$(tty)
 

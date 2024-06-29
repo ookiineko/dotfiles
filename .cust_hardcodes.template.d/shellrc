@@ -2,3 +2,5 @@
 
 __zshrc_plugin_prefix=/usr/share/zsh/plugins
 __zshrc_theme=/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
+export EDITOR=nano

@@ -3,11 +3,7 @@
 [[ ! -f $HOME/.ssh/id_ed25519 ]] && echo '=> note: id_ed25519 is not found, you may want to copy it manually later for auto-ssh-agent.'
 
 echo '=> please make sure the following packages are installed: '
-echo '\tcoreutils, findutils, file, util-linux, psmicc, procps, openssh-client, zsh, nano, curl, wget, openbsd-netcat, tzcode zsh-completions zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting zsh-theme-powerlevel10k tar xz unzip zip zstd texinfo cpio'
-
-if [ "$OSTYPE" = "msys" ]; then
-	echo 'mingw-w64-x86_64-{tzdata,kate,okular,breeze{,-icons}-qt5}'
-fi
+echo '\tcoreutils, findutils, util-linux, psmisc, procps, openssh-client, zsh, openbsd-netcat, zsh-completions, zsh-autosuggestions, zsh-history-substring-search, zsh-syntax-highlighting, zsh-theme-powerlevel10k'
 
 if [ "$OSTYPE" = "msys" -o "$OSTYPE" = "cygwin" ]; then
 	echo '=> setting up optional sysroot...'
@@ -20,7 +16,7 @@ if [ "$OSTYPE" = "msys" -o "$OSTYPE" = "cygwin" ]; then
 	sed -iE "/^$USER:/ s|/bin/bash|/bin/zsh|g" /etc/passwd
 fi
 
-[[ ! -f $HOME/.config/weechat/sec.conf ]] && echo '=> note: sec.conf is not found, you may want to copy it manually later for weechat.'
+echo '=> u may want to switch the default shell to zsh (using chsh or by editing /etc/passwd) if it wasn\'t done automatically'
 
 echo '=> populating hardcode files'
 
@@ -28,6 +24,6 @@ mkdir -p ~/.cust_hardcodes.d/
 
 cp -va ~/.cust_hardcodes.template.d/* ~/.cust_hardcodes.d/
 
-echo '=> note: please tweak the hardcodes in $HOME/.cust_hardcodes.d'
+echo '=> note: please, tweak the hardcodes in $HOME/.cust_hardcodes.d'
 
 echo '=> Done!'

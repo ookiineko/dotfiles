@@ -116,8 +116,6 @@ export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
 [[ ! -d $HOME/.local/bin ]] || export PATH=$HOME/.local/bin:$PATH
 
 if [ "$OSTYPE" = "msys" -o "$OSTYPE" = "cygwin" ]; then
-	[[ ! -d $HOME/.bin/msys2_hack ]] | export PATH=$HOME/.bin/msys2_hack:$PATH
-
 	# preset path var, so installation can work on the fly
 	[[ -d $HOME/.cargo/bin ]] || export PATH=$HOME/.cargo/bin:$PATH
 

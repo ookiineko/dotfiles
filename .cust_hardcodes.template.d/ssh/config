@@ -2,5 +2,5 @@
 # ==> Proxy
 #
 
-Host *
-	ProxyCommand nc -X 5 -x 127.0.0.1:56252 %h %p
+#Host *
+#	ProxyCommand nc -X 5 -x 127.0.0.1:56252 %h %p

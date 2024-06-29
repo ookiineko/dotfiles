@@ -22,6 +22,12 @@ fi
 
 [[ ! -f $HOME/.config/weechat/sec.conf ]] && echo '=> note: sec.conf is not found, you may want to copy it manually later for weechat.'
 
+echo '=> populating hardcode files'
+
+mkdir -p ~/.cust_hardcodes.d/
+
+cp -va ~/.cust_hardcodes.template.d/* ~/.cust_hardcodes.d/
+
 echo '=> note: please tweak the hardcodes in $HOME/.cust_hardcodes.d'
 
 echo '=> Done!'

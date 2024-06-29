@@ -77,7 +77,7 @@ function git_or_yadm() {
 	fi
 
 	for _git_arg in "$@"; do
-		if [ "$_git_arg" = "clone" ]; then
+		if [ "$_git_arg" = "clone" -o "$_git_arg" = "config" ]; then
 			_git_cmd=git
 			break
 		fi

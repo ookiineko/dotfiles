@@ -61,13 +61,6 @@ export EDITOR=nano
 # gpg - prefer terminal auth
 export GPG_TTY=$(tty)
 
-# Msys2/Cygwin - symlink
-if [ "$OSTYPE" = "msys" ]; then
-	export MSYS=winsymlinks:native
-elif [ "$OSTYPE" = "cygwin" ]; then
-	export CYGWIN=winsymlinks:sys
-fi
-
 function ensure_ssh_agent() {
 	[[ ! -f ~/.bin/_ensure-ssh-agent ]] || source ~/.bin/_ensure-ssh-agent
 }

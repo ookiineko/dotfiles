@@ -1,5 +1,3 @@
 #!/bin/bash
 
 __zshrc_plugin_prefix=/usr/share/zsh/plugins
-
-[[ -f /etc/profile.d/envvars.sh ]] && . /etc/profile.d/envvars.sh

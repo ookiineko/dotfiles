@@ -16,7 +16,7 @@ if [ "$OSTYPE" = "msys" -o "$OSTYPE" = "cygwin" ]; then
 	sed -iE "/^$USER:/ s|/bin/bash|/bin/zsh|g" /etc/passwd
 fi
 
-echo '=> u may want to switch the default shell to zsh (using chsh or by editing /etc/passwd) if it wasn\'t done automatically'
+echo "=> u may want to switch the default shell to zsh (using chsh or by editing /etc/passwd) if it wasn\'t done automatically"
 
 echo '=> populating hardcode files'
 

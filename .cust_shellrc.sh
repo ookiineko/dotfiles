@@ -92,15 +92,6 @@ alias git=git_or_yadm
 export DFT_DISPLAY=inline
 
 #
-# ==> proxies
-#
-
-export http_proxy=http://${__dotfiles_proxy_addr}
-export https_proxy=http://${__dotfiles_proxy_addr}
-export ftp_proxy=http://${__dotfiles_proxy_addr}
-export no_proxy='localhost,127.0.0.1'
-
-#
 # ==> paths
 #
 

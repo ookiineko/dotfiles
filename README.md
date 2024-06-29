@@ -7,7 +7,7 @@ my dotfiles
 >
 > personal shit
 
-basic shell configuration files
+(really) basic shell configuration files
 
 ### Install
 

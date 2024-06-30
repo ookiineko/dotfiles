@@ -1,1 +1,5 @@
 #!/bin/bash
+
+# example: pacman wrapper
+#unalias pacman
+#alias pacman=pacaptr

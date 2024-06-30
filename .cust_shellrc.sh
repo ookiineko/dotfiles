@@ -112,3 +112,7 @@ fi
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
         [[ ! -f /etc/profile.d/vte.sh ]] || source /etc/profile.d/vte.sh
 fi
+
+################################################################################
+
+[[ ! -f ~/.cust_hardcodes.d/post_shellrc ]] || . ~/.cust_hardcodes.d/post_shellrc

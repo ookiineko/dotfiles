@@ -66,25 +66,6 @@ function watch_something() {
 	watch -c -d -e -n 1 -t -x $*
 }
 
-function git_or_yadm() {
-	local _git_cmd=git
-
-	if [ "$PWD" = "$HOME" ]; then
-		_git_cmd=yadm
-	fi
-
-	for _git_arg in "$@"; do
-		if [ "$_git_arg" = "clone" -o "$_git_arg" = "config" ]; then
-			_git_cmd=git
-			break
-		fi
-	done
-
-	$_git_cmd "$@"
-}
-
-alias git=git_or_yadm
-
 # difftastic
 export DFT_DISPLAY=inline
 

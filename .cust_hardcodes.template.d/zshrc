@@ -12,3 +12,8 @@ __zshrc_plugins=(
 __cust_zsh_plugins=(
 	sudo
 )
+
+# example: homebrew
+#__zshrc_plugin_prefix=$(brew --prefix)/share
+#__zshrc_theme=$(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
+#FPATH=$(brew --prefix)/share/zsh-completions:$FPATH

@@ -1,3 +1,9 @@
 #!/bin/bash
 
 #export EDITOR=nano
+
+# exmaple: homebrew
+#export PATH="$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
+#export PATH="$(brew --prefix)/opt/util-linux/bin:$PATH"
+#export PATH="$(brew --prefix)/opt/util-linux/sbin:$PATH"
+#export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"

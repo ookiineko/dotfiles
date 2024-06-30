@@ -19,11 +19,13 @@
 #	insteadOf = ssh://git@github.com/LineageOS/
 # GitHub SSH mirror - China
 #[url "git@git.zhlh6.cn:"]
+#	insteadOf = git@github.com:
+#	insteadOf = ssh://git@github.com/
+# GitHub HTTPS mirror - China
+#[url "https://mirror.ghproxy.com/https://github.com/"]
 #	insteadOf = http://github.com/
 #	insteadOf = https://github.com/
-#	insteadOf = git@github.com:
 #	insteadOf = git://github.com/
-#	insteadOf = ssh://git@github.com/
 # AOSP Git mirror - by TUNA
 #[url "https://mirrors.tuna.tsinghua.edu.cn/git/AOSP/"]
 #	insteadOf = http://android.googlesource.com/

@@ -16,8 +16,4 @@ yadm clone
 yadm bootstrap
 ```
 
-### Supported platforms
-
-* archlinux x86_64
-
-(optionally tested on [Termux](../../tree/termux), [Ubuntu](../../tree/ubuntu), [cygwin/msys2](../../tree/cygmsys) and [macos](../../tree/macos), [hardcodes](.cust_hardcodes.d) changes and manually installation of some pkgs might be required)
+[additional notes](https://github.com/ookiineko/dotfiles/wiki)

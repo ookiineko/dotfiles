@@ -128,5 +128,11 @@ done
 
 [[ ! -f "${__zshrc_theme}" ]] || source "${__zshrc_theme}"
 
+#
+# ==> addons
+#
+
+[[ ! -f ~/.cust_hardcodes.d/post_zshrc ]] || . ~/.cust_hardcodes.d/post_zshrc
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -22,9 +22,19 @@ elif [ "$#" -ne 0 ]; then
     return 1
 fi
 
-ps -p $SSH_AGENT_PID 2>/dev/null >/dev/null
+__autossh_died=0
 
-if [ "$?" -ne 0 -o ! -S "$SSH_AUTH_SOCK" ]; then
+if ! kill -0 $SSH_AGENT_PID 2>/dev/null >/dev/null; then
+    __autossh_died=1
+else
+    socat -u OPEN:/dev/null "UNIX-CONNECT:${SSH_AUTH_SOCK}" 2>/dev/null >/dev/null
+
+    if [ "$?" -ne 0 ]; then
+        __autossh_died=1
+    fi
+fi
+
+if [ "$__autossh_died" -eq 1 ]; then
     echo "ssh-agent profile not found or invalid"
     if [ "$__autossh_kill" -eq 1 ]; then
         return 0

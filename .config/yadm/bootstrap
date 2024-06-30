@@ -3,7 +3,7 @@
 [[ ! -f $HOME/.ssh/id_ed25519 ]] && echo '=> note: id_ed25519 is not found, you may want to copy it manually later for auto-ssh-agent.'
 
 echo '=> please make sure the following packages are installed: '
-echo '\tcoreutils, findutils, util-linux, psmisc, procps, openssh-client, zsh, openbsd-netcat, zsh-completions, zsh-autosuggestions, zsh-history-substring-search, zsh-syntax-highlighting, zsh-theme-powerlevel10k'
+echo '\tcoreutils, findutils, util-linux, psmisc, procps, openssh-client, zsh, openbsd-netcat, socat, zsh-completions, zsh-autosuggestions, zsh-history-substring-search, zsh-syntax-highlighting, zsh-theme-powerlevel10k'
 
 if [ "$OSTYPE" = "msys" -o "$OSTYPE" = "cygwin" ]; then
 	echo '=> setting up optional sysroot...'

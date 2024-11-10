@@ -9,3 +9,7 @@
 **/*.exe.stackdump
 # Clangd
 **/.cache/
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake

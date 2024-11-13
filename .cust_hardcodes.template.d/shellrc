@@ -5,3 +5,5 @@
 # example: macports
 #export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 #export PATH="/opt/local/libexec/gnubin:$PATH"
+#export MANPATH="/Library/Developer/CommandLineTools/usr/share/man:$MANPATH"
+#export MANPATH="/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/share/man:$MANPATH"

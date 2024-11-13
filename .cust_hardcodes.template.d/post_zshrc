@@ -3,6 +3,7 @@
 # example: workaround missing pkgs in distro repo
 #source ~/.zplug/init.zsh
 #zplug 'zplug/zplug', depth:1, hook-build:'zplug --self-manage'
+#zplug 'zsh-users/zsh-completions', depth:1
 #zplug 'zsh-users/zsh-history-substring-search', depth:1
 #zplug 'zsh-users/zsh-syntax-highlighting', depth:1
 #zplug 'zsh-users/zsh-autosuggestions', depth:1

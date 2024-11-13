@@ -7,3 +7,8 @@
 #export PATH="/opt/local/libexec/gnubin:$PATH"
 #export MANPATH="/Library/Developer/CommandLineTools/usr/share/man:$MANPATH"
 #export MANPATH="/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/share/man:$MANPATH"
+
+# workaround zplug issue under macos:
+#   https://github.com/zplug/zplug/issues/420
+#export LANG=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8

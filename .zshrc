@@ -86,9 +86,11 @@ bindkey '^[[F' end-of-line
 
 # [PageUp]
 bindkey '^[[5~' up-line-or-history
+bindkey -M menuselect '^[[5~' backward-word
 
 # [PageDown]
 bindkey '^[[6~' down-line-or-history
+bindkey -M menuselect '^[[6~' forward-word
 
 # https://superuser.com/questions/799574/do-not-expand-wildcard-on-tab-completion
 bindkey "^I" complete-word

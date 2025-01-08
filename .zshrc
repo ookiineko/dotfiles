@@ -19,6 +19,13 @@ setopt extended_history       # record timestamp of command in HISTFILE
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 
 #
+# ==> behaviors
+#
+
+setopt auto_cd
+setopt auto_pushd
+
+#
 # ==> completion
 #
 autoload -Uz compinit

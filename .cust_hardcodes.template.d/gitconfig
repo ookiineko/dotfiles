@@ -22,7 +22,7 @@
 #	insteadOf = git@github.com:
 #	insteadOf = ssh://git@github.com/
 # GitHub HTTPS mirror - China
-#[url "https://mirror.ghproxy.com/https://github.com/"]
+#[url "https://ghfast.top/https://github.com/"]
 #	insteadOf = http://github.com/
 #	insteadOf = https://github.com/
 #	insteadOf = git://github.com/

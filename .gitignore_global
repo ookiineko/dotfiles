@@ -20,3 +20,5 @@
 # Ninja
 **/build.ninja
 **/.ninja_*
+# binaries
+**/*.exe

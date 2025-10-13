@@ -22,3 +22,4 @@
 **/.ninja_*
 # binaries
 **/*.exe
+**/*.dll.a

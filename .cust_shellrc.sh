@@ -66,6 +66,8 @@ function watch_something() {
 	watch -c -d -e -n 1 -t -x $*
 }
 
+alias boxmpv=mpv\ --script-opts='osc-visibility=always,osc-boxvideo=yes'
+
 # difftastic
 export DFT_DISPLAY=inline
 

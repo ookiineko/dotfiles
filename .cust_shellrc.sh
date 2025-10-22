@@ -67,6 +67,7 @@ function watch_something() {
 }
 
 alias boxmpv=mpv\ --script-opts='osc-visibility=always,osc-boxvideo=yes'
+alias pulsempv=mpv\ --ao=pulse
 
 # difftastic
 export DFT_DISPLAY=inline
